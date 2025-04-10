@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>LosMagosW</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: auto; /* Permite el scroll/pan con el mouse */
+      background-color: black;
+      color: white;
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      padding: 0;
+      background-image: url('https://i.pinimg.com/originals/69/0b/26/690b26b8147ad01dd5c992af8514af63.gif'); /* Imagen de fondo tipo mosaico */
+    }
+    
+    /* Contenedor principal */
+    .container {
+      width: 800px;
+      margin: 0 auto;
+      background-color: #111;
+      border: 5px double hotpink;
+      padding: 10px;
+      position: relative; /* Crea un stacking context */
+      z-index: 10;        /* Asegura que el contenedor y su contenido aparezcan por encima */
+    }
+    
+    header {
+      text-align: center;
+      background-color: #222;
+      border-bottom: 2px dashed pink;
+      padding: 10px;
+    }
+    
+    header h1 {
+      font-size: 36px;
+      margin: 0;
+      color: hotpink;
+    }
+    
+    .gifs {
+      margin-top: 10px;
+    }
+    
+    .main {
+      display: flex;
+      flex-direction: row;
+    }
+    
+    .sidebar {
+      width: 150px;
+      background-color: #333;
+      padding: 10px;
+      border-right: 2px dashed pink;
+    }
+    
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .sidebar li {
+      margin: 10px 0;
+    }
+    
+    .sidebar a {
+      color: hotpink;
+      text-decoration: none;
+    }
+    
+    .content-container {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+    
+    .content {
+      flex: 1;
+      padding: 10px;
+    }
+    
+    /* Botón con gif */
+    .button-gif {
+      width: 200px;
+      height: 100px;
+      background-color: #333;
+      border: 2px solid hotpink;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+      cursor: pointer;
+      text-align: center;
+    }
+    
+    .button-gif img {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+    
+    .button-gif:hover {
+      background-color: hotpink;
+    }
+    
+    .button-gif a {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .section {
+      margin-bottom: 20px;
+    }
+    
+    .botones-redes button,
+    .nosotros button {
+      margin: 5px;
+      background-color: hotpink;
+      border: none;
+      color: white;
+      padding: 5px;
+      cursor: pointer;
+    }
+    
+    /* Secciones de cada persona - separación para facilitar la navegación */
+    .persona {
+      margin: 20px 0;
+      padding: 10px;
+      border: 2px dashed hotpink;
+      border-radius: 10px;
+    }
+    
+    /* Estilo para las palabras animadas */
+    .palabra {
+      position: fixed;
+      color: #FF69B4;
+      font-family: 'Comic Neue', cursive;
+      font-size: 24px;
+      white-space: nowrap;
+      pointer-events: none;  /* Permite que los clics pasen al contenido de abajo */
+      z-index: -1;           /* Se sitúa detrás de todo el contenido principal */
+    }
+    
+    @keyframes moverPalabraIzqDer {
+      from { left: -100%; }
+      to { left: 100vw; }
+    }
+    
+    @keyframes moverPalabraDerIzq {
+      from { left: 100vw; }
+      to { left: -100%; }
+    }
+    
+    #controles {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 10px;
+      border-radius: 5px;
+      color: white;
+      font-family: 'Comic Neue', cursive;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>LoS MAgOs wE</h1>
+      <div class="gifs">
+        <!-- GIF animado -->
+        <img src="https://i.pinimg.com/736x/50/be/56/50be561b01fb68f0665b0b2acb379ebd.jpg" alt="gif1">
+      </div>
+    </header>
+    
+    <div class="main">
+      <!-- Índice lateral -->
+      <div class="sidebar">
+        <ul>
+          <li><a href="#podcast">Podcast.</a></li>
+          <li><a href="#fotos">Fotos.</a></li>
+          <li><a href="#nosotros">Nosotros.</a></li>
+        </ul>
+      </div>
+      
+      <!-- Contenido central y botón de gif -->
+      <div class="content-container">
+        <!-- Contenido principal -->
+        <div class="content">
+          <!-- Podcast -->
+          <div id="podcast" class="section">
+            <h2>Podcast</h2>
+            <p>Hola!. Todavía estamos tratando de definir nuestro podcast, nuevo contenido muy pronto.ᕙ(⇀‸↼‶)ᕗ</p>
+            <div class="botones-redes">
+              <button onclick="location.href='https://www.youtube.com/@LosMagosWe'">YouTube</button>
+              <button onclick="location.href='https://spotify.com'">Spotify</button>
+              <button onclick="location.href='https://www.instagram.com/losmagos420am/'">Instagram</button>
+              <button onclick="location.href='https://www.twitch.tv/losmagoswe'">Twitch</button>
+            </div>
+          </div>
+          
+          <!-- Fotos -->
+          <div id="fotos" class="section">
+            <h2>Fotos</h2>
+            <p>Galería de fotos aquí...ᕕ( ᐛ )ᕗ</p>
+            <img src="https://i.pinimg.com/736x/7b/f8/5f/7bf85f96a582f293c7b54112bf297caf.jpg" alt="foto1" style="width:100px">
+          </div>
+          
+          <!-- Nosotros -->
+          <div id="nosotros" class="section">
+            <h2>Nosotros</h2>
+            <!-- Botones para cada persona -->
+            <div class="nosotros">
+              <button onclick="document.getElementById('persona1').scrollIntoView();">
+                <img src="https://i.pinimg.com/736x/38/a2/a3/38a2a36dec59b1b65bccf5f47c286cb4.jpg" alt="persona1" style="width:30px; vertical-align:middle;"> Animaaa
+              </button>
+              <button onclick="document.getElementById('persona2').scrollIntoView();">
+                <img src="https://i.pinimg.com/736x/7d/ef/a8/7defa8ec90c158f94bf19c37c4d131cd.jpg" alt="persona2" style="width:30px; vertical-align:middle;"> Doleannn
+              </button>
+              <button onclick="document.getElementById('persona3').scrollIntoView();">
+                <img src="https://i.pinimg.com/736x/56/16/19/561619b2f4146ae5783a5c32768c5f42.jpg" alt="persona3" style="width:30px; vertical-align:middle;"> OldOskr
+              </button>
+              <button onclick="document.getElementById('persona4').scrollIntoView();">
+                <img src="https://i.pinimg.com/736x/65/a1/ff/65a1ffee346ff5e78e347f937de56b13.jpg" alt="persona4" style="width:30px; vertical-align:middle;"> Ruwik
+              </button>
+            </div>
+            
+            <!-- Secciones individuales para cada persona -->
+            <div id="persona1" class="persona">
+              <h3>Anima</h3>
+              <img src="https://i.pinimg.com/736x/15/67/64/1567645b6b365583a7a09794f99a9e5e.jpg" alt="persona1" style="width:100px">
+              <img src="https://i.pinimg.com/736x/12/5b/60/125b60ed7077bfd1e490468fd9a312ad.jpg" alt="persona1" style="width:100px">
+              <img src="https://i.pinimg.com/736x/0a/16/9c/0a169cd85c2409e1a311ac45180eca38.jpg" alt="persona1" style="width:100px">
+              <p>Soy un Friki de mierda...</p>
+            </div>
+            <div id="persona2" class="persona">
+              <h3>Dolean</h3>
+              <img src="https://i.pinimg.com/736x/d5/06/c2/d506c240efa4c4a281e1122e3430444b.jpg" alt="persona2" style="width:100px">
+              <img src="https://i.pinimg.com/736x/32/7a/5d/327a5d17e03fa3eddd40d65807f4738e.jpg" alt="persona2" style="width:100px">
+              <img src="https://i.pinimg.com/736x/d9/22/72/d92272c42e6266b0cfd2074d36e9591b.jpg" alt="persona2" style="width:100px">
+              <p>Descripción de la persona 2...</p>
+            </div>
+            <div id="persona3" class="persona">
+              <h3>OldOskr</h3>
+              <img src="https://i.pinimg.com/736x/2f/bf/99/2fbf99db3c8302a4d14b66bed4e1227e.jpg" alt="persona3" style="width:100px">
+              <img src="https://i.pinimg.com/736x/22/5f/81/225f81750b27acb1b999f16293246874.jpg" alt="persona3" style="width:100px">
+              <img src="https://i.pinimg.com/736x/d2/d4/a5/d2d4a546ec64b6669d4638bb5a3cf459.jpg" alt="persona3" style="width:100px">
+              <p>Descripción de la persona 3...</p>
+            </div>
+            <div id="persona4" class="persona">
+              <h3>Ruwik</h3>
+              <img src="https://i.pinimg.com/736x/34/c0/ce/34c0ce5ccf0b1dce1777ca1ff3c5beb5.jpg" alt="persona4" style="width:100px">
+              <img src="https://i.pinimg.com/736x/44/fb/fa/44fbfabbed2e3992f0dfc8759afc1af1.jpg" alt="persona4" style="width:100px">
+              <img src="https://i.pinimg.com/736x/f8/4b/3c/f84b3cfa76ea89ce56fe59c73392a60e.jpg" alt="persona4" style="width:100px">
+              <p>Descripción de la persona 4...</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Botón con gif -->
+        <div class="button-gif">
+          <a href="https://pin.it/5iA7GhkUn">
+            <img src="https://i.pinimg.com/originals/01/ce/a2/01cea29c29607dec5ffe9f3cedca0e3b.gif" alt="Gif Button">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    const palabras = ['Hola', 'Mundo', 'JavaScript', 'HTML', 'CSS', 'Programación', 'Web', 'Desarrollo'];
+    const contenedor = document.body;
+    
+    function crearPalabra(direccion) {
+      const palabra = document.createElement('div');
+      palabra.className = 'palabra';
+      palabra.textContent = palabras[Math.floor(Math.random() * palabras.length)];
+    
+      // Posición aleatoria en el eje Y
+      palabra.style.top = `${Math.random() * 80 + 10}%`;
+    
+      // Asigna la animación según la dirección
+      if (direccion === 'izquierda') {
+        palabra.style.animation = 'moverPalabraIzqDer 10s linear infinite';
+      } else {
+        palabra.style.animation = 'moverPalabraDerIzq 10s linear infinite';
+      }
+    
+      contenedor.appendChild(palabra);
+    
+      // Remueve la palabra al finalizar la animación para no saturar el DOM
+      palabra.addEventListener('animationend', () => {
+        palabra.remove();
+      });
+    }
+    
+    setInterval(() => {
+      const direccionAleatoria = Math.random() > 0.5 ? 'izquierda' : 'derecha';
+      crearPalabra(direccionAleatoria);
+    }, 1000);
+  </script>
+</body>
+</html>
